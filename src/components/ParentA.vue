@@ -1,7 +1,7 @@
 <template>
     <div id="ParentA" class="one-parent">
         <div>Parent A</div>
-        <Child1></Child1>
+        <Child1 v-for="block in blocks" :block="block"></Child1>
     </div>
 </template>
 
@@ -11,6 +11,11 @@
         name: 'ParentA',
         components: {
             Child1
+        },
+        props: {
+            blocks: {
+                type: Array
+            }
         }
     }
 </script>
