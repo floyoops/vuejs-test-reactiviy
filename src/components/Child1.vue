@@ -17,8 +17,7 @@
         inject: ['commandBus'],
         methods: {
             deleteBlock(blockId) {
-                console.log('commandBus', this.commandBus)
-                this.commandBus.emit('commandDeleteBlock', new DeleteBlockCommand(blockId))
+                this.commandBus.$emit('DeleteBlockCommand', new DeleteBlockCommand(blockId))
             }
         }
     }

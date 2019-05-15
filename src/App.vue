@@ -17,7 +17,6 @@ import myForm from './components/myForm'
 import ParentA from './components/ParentA'
 import ParentB from './components/ParentB'
 import ParentC from './components/ParentC'
-import commandBus from './libs/commandBus'
 
 export default {
   name: 'app',
@@ -37,12 +36,6 @@ export default {
       let newBlock = Object.create({id: newId, title : newTitle});
       this.blocks.push(newBlock);
     }
-  },
-  provide: {
-    commandBus: commandBus
-  },
-  mounted() {
-
   }
 }
 </script>
