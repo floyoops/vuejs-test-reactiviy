@@ -13,13 +13,10 @@ export default class DeleteBlockCommandHandler {
     handle(command) {
         if (command instanceof DeleteBlockCommand) {
             let i = this.getIndex(command.blockId);
-            console.log('i', i);
             if (i === null) {
                 return false
             }
-            console.log('Delete a', this.blockStore.data[i])
-            delete this.blockStore.data[i]
-            console.log('Delete b', i, command, this.blockStore)
+            this.blockStore.data.splice(i, 1)
         } else {
             throw 'Bad instance command'
         }
@@ -29,7 +26,6 @@ export default class DeleteBlockCommandHandler {
         let index = null
         this.blockStore.data.forEach((block, key) => {
             if (block.id === blockId) {
-                console.log('kkk', key)
                 index = key
             }
         })
