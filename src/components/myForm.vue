@@ -7,18 +7,15 @@
 </template>
 
 <script>
-    import CreateBlockCommand from "../Domain/Command/CreateBlockCommand";
-
     export default {
         name: 'myForm',
         data: () => ({
           title: null
         }),
-        inject: ['commandBus'],
         methods: {
             checkForm() {
                 if (this.title) {
-                  this.commandBus.$emit('CreateBlockCommand', new CreateBlockCommand(this.title))
+                  this.$emit('submitForm', this.title)
                   this.title = null
                 }
             }

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div>
-      <myForm></myForm>
+      <myForm v-on:submitForm="createBlock"></myForm>
     </div>
     <div class="parents-cols">
       <ParentA :blocks="blocks"></ParentA>
@@ -17,12 +17,19 @@ import myForm from './components/myForm'
 import ParentA from './components/ParentA'
 import ParentB from './components/ParentB'
 import ParentC from './components/ParentC'
+import CreateBlockCommand from "./Domain/Command/CreateBlockCommand";
 
 export default {
   name: 'app',
   data: () => ({
     blocks: myData.blocks
   }),
+  methods: {
+    createBlock(title) {
+      this.commandBus.$emit('CreateBlockCommand', new CreateBlockCommand(title))
+    }
+  },
+  inject: ['commandBus'],
   components: {
     myForm,
     ParentA,
