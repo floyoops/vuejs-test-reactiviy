@@ -51,7 +51,7 @@ export default {
   columns: 3;
 }
 .one-parent {
-  min-height: 500px;
+  height: 800px;
   padding: 10px;
 }
 .one-child {
