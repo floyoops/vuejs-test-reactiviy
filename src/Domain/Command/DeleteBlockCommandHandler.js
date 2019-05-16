@@ -6,7 +6,7 @@ export default class DeleteBlockCommandHandler {
         if (blockStore instanceof BlocksStore) {
             this.blockStore = blockStore
         } else {
-            throw 'Bad instance blocksStore'
+            throw new Error('Bad instance blocksStore')
         }
     }
 
@@ -18,7 +18,7 @@ export default class DeleteBlockCommandHandler {
             }
             this.blockStore.data.splice(i, 1)
         } else {
-            throw 'Bad instance command'
+            throw new Error('Bad instance command')
         }
     }
 

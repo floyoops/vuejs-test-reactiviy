@@ -23,7 +23,6 @@ export default class CreateBlockLineCommandHandler {
       }
       let newLineId = CreateBlockLineCommandHandler.getNewLineId(block)
       let newLine = {id: newLineId, subTitle: command.title}
-      console.log('block', block)
       if (typeof block.lines === 'undefined') {
         block.lines =  Object.create([])
       }

@@ -3,7 +3,7 @@
         <span class="blockTitle">{{ block.title }}</span>
         <button @click="deleteBlock(block.id)">X</button>
         <myForm v-on:submitForm="createBlockLine"></myForm>
-        <ChildLine v-for="line in block.lines" :ChildLine="line"></ChildLine>
+        <ChildLine v-for="line in block.lines" :ChildLine="line" :blockId="block.id"></ChildLine>
     </div>
 </template>
 
