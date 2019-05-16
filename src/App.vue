@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div>
-      <myForm v-on:new:title="addNewTitle"></myForm>
+      <myForm></myForm>
     </div>
     <div class="parents-cols">
       <ParentA :blocks="blocks"></ParentA>
@@ -28,14 +28,6 @@ export default {
     ParentA,
     ParentB,
     ParentC
-  },
-  methods: {
-    addNewTitle(newTitle) {
-      let lastBlock = this.blocks[this.blocks.length - 1];
-      let newId = lastBlock.id + 1;
-      let newBlock = Object.create({id: newId, title : newTitle});
-      this.blocks.push(newBlock);
-    }
   }
 }
 </script>
