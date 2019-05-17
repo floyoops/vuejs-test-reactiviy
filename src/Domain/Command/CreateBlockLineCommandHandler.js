@@ -1,5 +1,6 @@
 import CreateBlockLineCommand from "./CreateBlockLineCommand";
 import BlocksStore from "../../Data/BlocksStore";
+import Vue from 'vue'
 
 export default class CreateBlockLineCommandHandler {
   constructor(blockStore) {
@@ -24,7 +25,7 @@ export default class CreateBlockLineCommandHandler {
       let newLineId = CreateBlockLineCommandHandler.getNewLineId(block)
       let newLine = {id: newLineId, subTitle: command.title}
       if (typeof block.lines === 'undefined') {
-        block.lines =  Object.create([])
+        Vue.set(block, 'lines', [])
       }
       block.lines.push(newLine)
       this.blockStore.data[indexBlock] = block
