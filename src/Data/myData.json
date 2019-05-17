@@ -4,27 +4,27 @@
       "id": 1,
       "title": "My first title",
       "lines": [
-        {"id": 1, "subTitle":  "subtitle 1 one"},
-        {"id": 2, "subTitle":  "subtitle 1 two"},
-        {"id": 3, "subTitle":  "subtitle 1 three"}
+        {"id": 1, "subTitle":  "subtitle 1 one", "widget": {"id": 1, "title":  "widget title 1"}},
+        {"id": 2, "subTitle":  "subtitle 1 two", "widget": {"id": 1, "title":  "widget title 1"}},
+        {"id": 3, "subTitle":  "subtitle 1 three", "widget": {"id": 1, "title":  "widget title 1"}}
       ]
     },
     {
       "id": 2,
       "title": "My second title",
       "lines":[
-        {"id": 1, "subTitle":  "subtitle 2 one"},
-        {"id": 2, "subTitle":  "subtitle 2 two"},
-        {"id": 3, "subTitle":  "subtitle 2 three"}
+        {"id": 1, "subTitle":  "subtitle 2 one", "widget": {"id": 1, "title":  "widget title 1"}},
+        {"id": 2, "subTitle":  "subtitle 2 two", "widget": {"id": 1, "title":  "widget title 1"}},
+        {"id": 3, "subTitle":  "subtitle 2 three", "widget": {"id": 1, "title":  "widget title 1"}}
       ]
     },
     {
       "id": 3,
       "title": "My third title",
       "lines":[
-        {"id": 1, "subTitle":  "subtitle 3 one"},
-        {"id": 2, "subTitle":  "subtitle 3 two"},
-        {"id": 3, "subTitle":  "subtitle 3 three"}
+        {"id": 1, "subTitle":  "subtitle 3 one", "widget": {"id": 1, "title":  "widget title 1"}},
+        {"id": 2, "subTitle":  "subtitle 3 two", "widget": {"id": 1, "title":  "widget title 1"}},
+        {"id": 3, "subTitle":  "subtitle 3 three", "widget": {"id": 1, "title":  "widget title 1"}}
       ]
     }
   ]
