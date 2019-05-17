@@ -9,11 +9,11 @@ import DeleteBlockLineCommandHandler from "./Domain/Command/DeleteBlockLineComma
 export default class Container {
   constructor() {
     this.commandBus = CommandBus
-    let blockStore = new BlocksStore(myData.blocks)
-    this.deleteBlockCommandHandler = new DeleteBlockCommandHandler(blockStore)
-    this.createBlockCommandHandler = new CreateBlockCommandHandler(blockStore)
-    this.createBlockLineCommandHandler = new CreateBlockLineCommandHandler(blockStore)
-    this.deleteBlockLineCommandHandler = new DeleteBlockLineCommandHandler(blockStore)
+    this.blockStore = new BlocksStore(myData.blocks)
+    this.deleteBlockCommandHandler = new DeleteBlockCommandHandler(this.blockStore)
+    this.createBlockCommandHandler = new CreateBlockCommandHandler(this.blockStore)
+    this.createBlockLineCommandHandler = new CreateBlockLineCommandHandler(this.blockStore)
+    this.deleteBlockLineCommandHandler = new DeleteBlockLineCommandHandler(this.blockStore)
     this.commandListen()
   }
 

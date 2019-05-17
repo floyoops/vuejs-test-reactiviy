@@ -1,7 +1,10 @@
 <template>
     <div>
-    <button @click="deleteBlockLine(blockId, ChildLine.id)">X</button>
-    <div class="childLine">{{ ChildLine.subTitle }}</div>
+        <button @click="deleteBlockLine(block, blockLine)">X</button>
+        <div class="childLine">
+            <span>{{ blockLine.id }} </span>
+            <span>{{ blockLine.subTitle }}</span>
+        </div>
     </div>
 </template>
 
@@ -11,17 +14,19 @@
     export default {
       name: 'ChildLine',
       props: {
-        blockId: {
-          type: Number
-        },
-        ChildLine: {
-          type: Object
+        initialBlockLine: {type: Object},
+        initialBlock: {type: Object}
+      },
+      data() {
+        return {
+          blockLine: this.initialBlockLine,
+          block: this.initialBlock
         }
       },
       inject: ['commandBus'],
       methods: {
-          deleteBlockLine(blockId, blockLineId) {
-              this.commandBus.$emit('DeleteBlockLineCommand', new DeleteBlockLineCommand(blockId, blockLineId))
+          deleteBlockLine(block, blockLine) {
+            this.commandBus.$emit('DeleteBlockLineCommand', new DeleteBlockLineCommand(block.id, blockLine.id))
           }
       }
     }
@@ -34,5 +39,12 @@
         padding: 2px;
         color: #2c3e50;
         margin-top: 6px
+    }
+    .childLine span:first-child {
+        text-align: center;
+        padding-right: 2px;
+        margin-right: 8px;
+        font-weight: lighter;
+        border-right: 1px solid;
     }
 </style>

@@ -28,7 +28,6 @@ export default class DeleteBlockLineCommandHandler {
             }
             block.lines.splice(blockLineIndex, 1)
             this.blockStore.data[blockIndex] = block
-
         } else {
             throw new Error('Bad instance command')
         }

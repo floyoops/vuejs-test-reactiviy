@@ -14,7 +14,7 @@ export default class CreateBlockCommandHandler
   handle(command) {
     if (command instanceof CreateBlockCommand) {
       let newId = this.getNewId()
-      let newBlock = Object.create({id: newId, title : command.title});
+      let newBlock = {id: newId, title : command.title};
       this.blockStore.data.push(newBlock)
     } else {
       throw new Error('bad instance command')

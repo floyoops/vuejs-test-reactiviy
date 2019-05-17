@@ -4,37 +4,30 @@
       <myForm v-on:submitForm="createBlock"></myForm>
     </div>
     <div class="parents-cols">
-      <ParentA :blocks="blocks"></ParentA>
-      <ParentB></ParentB>
-      <ParentC></ParentC>
+      <ParentA :initialBlocks="blocks"></ParentA>
     </div>
   </div>
 </template>
 
 <script>
-import myData from './Data/myData'
 import myForm from './components/myForm'
 import ParentA from './components/ParentA'
-import ParentB from './components/ParentB'
-import ParentC from './components/ParentC'
 import CreateBlockCommand from "./Domain/Command/CreateBlockCommand";
 
 export default {
   name: 'app',
-  data: () => ({
-    blocks: myData.blocks
-  }),
+  data() {
+    return {blocks: this.blockStore.data}
+  },
   methods: {
     createBlock(title) {
       this.commandBus.$emit('CreateBlockCommand', new CreateBlockCommand(title))
     }
   },
-  inject: ['commandBus'],
+  inject: ['commandBus', 'blockStore'],
   components: {
     myForm,
-    ParentA,
-    ParentB,
-    ParentC
+    ParentA
   }
 }
 </script>
@@ -48,15 +41,10 @@ export default {
   color: #2c3e50;
 }
 .parents-cols{
-  columns: 3;
+  columns: 1;
 }
 .one-parent {
   height: 800px;
   padding: 10px;
-}
-.one-child {
-  min-height: 10px;
-  padding: 10px;
-  margin: 10px;
 }
 </style>
