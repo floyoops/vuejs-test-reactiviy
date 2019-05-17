@@ -4,12 +4,14 @@
         <div class="childLine">
             <span>{{ blockLine.id }} </span>
             <span>{{ blockLine.subTitle }}</span>
+            <widget :initial-widget="blockLine.widget"></widget>
         </div>
     </div>
 </template>
 
 <script>
     import DeleteBlockLineCommand from "../Domain/Command/DeleteBlockLineCommand";
+    import Widget from './Widget'
 
     export default {
       name: 'ChildLine',
@@ -28,6 +30,9 @@
           deleteBlockLine(block, blockLine) {
             this.commandBus.$emit('DeleteBlockLineCommand', new DeleteBlockLineCommand(block.id, blockLine.id))
           }
+      },
+      components: {
+        Widget: Widget
       }
     }
 </script>
