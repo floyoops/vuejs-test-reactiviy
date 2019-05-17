@@ -23,7 +23,7 @@ export default class CreateBlockLineCommandHandler {
         throw Error('Index not found on block ' + blockId)
       }
       let newLineId = CreateBlockLineCommandHandler.getNewLineId(block)
-      let newLine = {id: newLineId, subTitle: command.title}
+      let newLine = {id: newLineId, subTitle: command.title, widget: {id: 1, title: "new"}}
       if (typeof block.lines === 'undefined') {
         Vue.set(block, 'lines', [])
       }

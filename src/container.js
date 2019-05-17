@@ -5,6 +5,7 @@ import myData from './Data/myData'
 import CreateBlockCommandHandler from "./Domain/Command/CreateBlockCommandHandler";
 import CreateBlockLineCommandHandler from "./Domain/Command/CreateBlockLineCommandHandler";
 import DeleteBlockLineCommandHandler from "./Domain/Command/DeleteBlockLineCommandHandler";
+import UpdateWidgetCommandHandler from "./Domain/Command/UpdateWidgetCommandHandler";
 
 export default class Container {
   constructor() {
@@ -14,6 +15,7 @@ export default class Container {
     this.createBlockCommandHandler = new CreateBlockCommandHandler(this.blockStore)
     this.createBlockLineCommandHandler = new CreateBlockLineCommandHandler(this.blockStore)
     this.deleteBlockLineCommandHandler = new DeleteBlockLineCommandHandler(this.blockStore)
+    this.updateWidgetCommandHandler = new UpdateWidgetCommandHandler(this.blockStore)
     this.commandListen()
   }
 
@@ -29,6 +31,9 @@ export default class Container {
     })
     this.commandBus.$on('DeleteBlockLineCommand', (command) => {
       this.deleteBlockLineCommandHandler.handle(command)
+    })
+    this.commandBus.$on('UpdateWidgetCommand', (command) => {
+      this.updateWidgetCommandHandler.handle(command)
     })
   }
 }

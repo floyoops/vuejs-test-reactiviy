@@ -4,7 +4,7 @@
         <div class="childLine">
             <span>{{ blockLine.id }} </span>
             <span>{{ blockLine.subTitle }}</span>
-            <widget :initial-widget="blockLine.widget"></widget>
+            <widget :initial-block="block" :initial-bloc-k-line="blockLine" :initial-widget="blockLine.widget"></widget>
         </div>
     </div>
 </template>
